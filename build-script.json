@@ -46,9 +46,15 @@
 			"-e",
 			"!node_modules",
 			"-e",
+			"!node_modules/**",
+			"-e",
 			"!.idea",
 			"-e",
-			"!.vscode"
+			"!.idea/**",
+			"-e",
+			"!.vscode",
+			"-e",
+			"!.vscode/**"
 		]
 	},
 	"command": {

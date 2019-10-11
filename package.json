@@ -1,7 +1,6 @@
 {
-	"monorepo": "yarn",
 	"name": "@gongt/flat-yarn-install",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"bin": {
 		"flat-yarn-install": "bin.js"
 	},
