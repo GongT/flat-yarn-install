@@ -8,9 +8,9 @@ flat-yarn-install --newest
 flat-yarn-install /path/to/auto-response-script.js
 ```
 
-Content of auto response script:
+Content of auto response script: *(Note: typescript and esm are **not** supported, just a hint here!)*
 ````typescript
-export default async function resolve(packageName:string, versions: string[]) {
+export default async function resolve(packageName: string, versions: string[]) {
 	return versions[0]; // select first option
 }
 ````
