@@ -1,4 +1,4 @@
-import split2 = require('split2');
+import * as split2 from 'split2';
 
 function safeJsonParse(line: string) {
 	try {

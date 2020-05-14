@@ -28,3 +28,11 @@ Will call:
 const result = await resolve('supports-color', ["4.5.0", "5.5.0", "6.1.0"]);
 ```
 If `result` is "5.5.0", `2\n` will send to yarn's stdin.
+
+
+### Note
+
+Resolve result will save to `resolutions` field inside `package.json`.    
+You **MUST** delete it before you update some dependency's version, or before you want to chose a different version.
+
+If some package is already exists in `resolutions`, it will not overwrite by this process. (but "some/sub-dep" is not supported)

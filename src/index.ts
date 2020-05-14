@@ -91,11 +91,23 @@ async function handleManualResolve() {
 
 	const selector = getSelector();
 
-	if (!await access('package.json').then(() => true, () => false)) {
+	if (
+		!(await access('package.json').then(
+			() => true,
+			() => false
+		))
+	) {
 		die('Can not read package.json');
 	}
-	if (!await access('yarn.lock').then(() => true, () => false)) {
-		die('File yarn.lock did not exists, you must run yarn install at least once');
+	if (
+		!(await access('yarn.lock').then(
+			() => true,
+			() => false
+		))
+	) {
+		die(
+			'File "yarn.lock" does not exists, you must run "yarn install" at least once. This is because I need to run "yarn list".'
+		);
 	}
 
 	await handleManualResolve();
@@ -139,7 +151,7 @@ async function handleManualResolve() {
 			fitVersion = maxSatisfying(versions, result);
 		}
 		if (!fitVersion) {
-			throw die('Can not find any version fit %s, known versions are [%s]', selection[name], versions.join(', '));
+			die('Can not find any version fit %s, known versions are [%s]', selection[name], versions.join(', '));
 		}
 		return fitVersion;
 	};

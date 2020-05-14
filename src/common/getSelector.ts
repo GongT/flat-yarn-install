@@ -15,7 +15,7 @@ export function getSelector() {
 	if (process.argv.length <= 2) {
 		die(
 			'Usage:\n\t$0 %s\n\t$0 selector.js\n\tSelector should \x1B[38;5;14mexport default function(name: string, version: string[]): string|Promise<string>;\x1B[0m',
-			Object.keys(preset).join('|'),
+			Object.keys(preset).join('|')
 		);
 	}
 	const arg = process.argv[2];

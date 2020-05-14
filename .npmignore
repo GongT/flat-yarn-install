@@ -7,3 +7,4 @@ package-deps.json
 *.log
 build-script.json
 src
+pnpm-lock.yaml

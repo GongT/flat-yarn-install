@@ -27,7 +27,7 @@ export async function runYarnFlat(selector: ISelectionFunction) {
 
 		currentPackage = '';
 		const indexStr = index.toString();
-		process.stderr.write(`${indexStr}\x1B[2m <- in ["${currentVersions.join('", "')}"] select ${version}\x1B[0m\n`);
+		process.stderr.write(`\x1B[2mfrom ["${currentVersions.join('", "')}"] select ${version} -> \x1B[0m`);
 		input.write(Buffer.from(`${indexStr}\n`, 'utf-8'));
 		output.read(indexStr.length);
 	}
@@ -54,7 +54,7 @@ export async function runYarnFlat(selector: ISelectionFunction) {
 				if (c === 10 || c === 13 || c === 0x1b) {
 					const l = lineCache.toString();
 					lineCache = Buffer.alloc(0);
-					commitLine(l).catch(e => reject(e));
+					commitLine(l).catch((e) => reject(e));
 				} else {
 					lineCache = Buffer.concat([lineCache, readData]);
 				}
